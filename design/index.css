@@ -1,0 +1,142 @@
+:root {
+  --verydarkgray: hsl(0, 0%, 17%);
+  --darkgray: hsl(0, 0%, 59%);
+}
+@font-face {
+  font-family: Rubik;
+  src: url("../font/Rubik-Regular.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  box-sizing: border-box;
+  font-family: Rubik, Arial, Helvetica, sans-serif;
+}
+html {
+    scrollbar-width: thin;
+}
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  height: clamp(600px, 100vh, 1000px);
+}
+.headerSection {
+  background: url("../images/pattern-bg-mobile.png");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0 0px 0;
+  row-gap: 20px;
+}
+.headerSection > p {
+  font-size: 20px;
+  color: white;
+}
+.inputWrapper {
+  display: flex;
+  width: 90%;
+  max-width: 400px;
+  --buttonHeight: 40px;
+  --border-radius: 10px;
+  border-radius: 10px;
+}
+.inputWrapper input {
+  width: calc(100% - var(--buttonHeight));
+  padding: 0 20px;
+  border: none;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  font-size: 18px;
+  cursor: text;
+}
+.inputWrapper input:focus {
+  outline: none;
+}
+.inputWrapper input::placeholder {
+  font-size: 13px;
+}
+.inputWrapper .button {
+  width: var(--buttonHeight);
+  height: var(--buttonHeight);
+  background-color: var(--verydarkgray);
+  border: none;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inputWrapper .button:hover, .inputWrapper .button:focus {
+  cursor: pointer;
+  background-color: rgb(170, 170, 170);
+}
+.inputWrapper .button:hover > div {
+  border-color: black;
+}
+.inputWrapper .button > div {
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  padding: 3px;
+  transform: rotateZ(45deg);
+}
+main {
+  height: 110px;
+  width: 90%;
+  overflow: visible;
+}
+main .mainWrapper {
+  height: 200%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  background-color: white;
+  border-radius: 10px;
+}
+.mainWrapper > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 8px 0;
+}
+.mainWrapper div p {
+  text-align: center;
+}
+.mainWrapper div p:first-child {
+  font-size: 8px;
+  color: var(--darkgray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.mainWrapper div p:last-child {
+  font-weight: 600;
+}
+.map {
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+@media(min-width: 600px) {
+  main {
+    height: 50px;
+  }
+  main .mainWrapper {
+    flex-direction: row;
+  }
+  main .mainWrapper > div {
+    width: auto;
+    flex: 1 1 auto;
+  }
+  main .mainWrapper > div:nth-child(n):not(main .mainWrapper > div:last-child) {
+    border-right: 1px solid gray;
+  }
+}
